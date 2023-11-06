@@ -8,7 +8,8 @@ public interface CarroServices {
 
     public CarroEntity obtenerCarroId(Long id) throws Exception;
 
-    public void eliminarCarroId(Long id) throws Exception;
+    public String eliminarCarroId(Long id) throws Exception;
 
+    public CarroEntity actualizarCarroId(Long id, CarroEntity detallesNew) throws Exception;
 
 }
