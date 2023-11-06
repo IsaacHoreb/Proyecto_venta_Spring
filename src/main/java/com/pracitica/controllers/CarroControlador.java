@@ -2,11 +2,9 @@ package com.pracitica.controllers;
 
 import com.pracitica.entity.CarroEntity;
 import com.pracitica.services.CarroServices;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/car")
@@ -16,9 +14,23 @@ public class CarroControlador {
     private CarroServices carroServices;
 
     @PostMapping("/saveCar")
-    public CarroEntity guardar(@RequestBody CarroEntity carro) throws Exception {
+    public CarroEntity saveCar(@Valid @RequestBody CarroEntity carro) throws Exception {
         return carroServices.guardarCarro(carro);
     }
 
+    @GetMapping("/carInfo/{id}")
+    public CarroEntity getCarId(@PathVariable("id") Long id) throws Exception {
+        return carroServices.obtenerCarroId(id);
+    }
+
+    @DeleteMapping("/deleteCar/{id}")
+    public String deleteCarId(@PathVariable("id") Long id) throws Exception {
+        return carroServices.eliminarCarroId(id);
+    }
+
+    @PutMapping("/updateCar/{id}")
+    public CarroEntity updateCarId(@PathVariable("id") Long id, @Valid @RequestBody CarroEntity cardetalles) throws Exception {
+        return carroServices.actualizarCarroId(id, cardetalles);
+    }
 
 }
