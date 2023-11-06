@@ -44,7 +44,7 @@ public class CarroEntity {
     @Column(name = "status", nullable = false, columnDefinition = "VARCHAR(10)")
     private String status;
 
-    @OneToMany(targetEntity = CarCompraEntity.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "carro")
-    private Set<CarCompraEntity> carroComprador = new HashSet<>();
+    @OneToMany(targetEntity = TablaRelacion.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "carro")
+    private Set<TablaRelacion> carroComprador = new HashSet<>();
 
 }

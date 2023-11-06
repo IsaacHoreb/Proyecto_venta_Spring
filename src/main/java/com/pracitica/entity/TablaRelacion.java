@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @Table(name = "vehiculo_comprado")
-public class CarCompraEntity {
+public class TablaRelacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

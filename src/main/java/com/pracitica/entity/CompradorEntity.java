@@ -31,8 +31,8 @@ public class CompradorEntity {
     @Column(name = "phone", length = 18, nullable = false, columnDefinition = "VARCHAR(17)")
     private String phone;
 
-    @OneToMany(targetEntity = CarCompraEntity.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "comprador")
-    private Set<CarCompraEntity> carroComprador = new HashSet<>();
+    @OneToMany(targetEntity = TablaRelacion.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "comprador")
+    private Set<TablaRelacion> carroComprador = new HashSet<>();
 
 
     /*
