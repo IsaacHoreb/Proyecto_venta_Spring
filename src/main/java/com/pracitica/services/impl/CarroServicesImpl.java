@@ -32,11 +32,57 @@ public class CarroServicesImpl implements CarroServices {
 
     @Override
     public CarroEntity obtenerCarroId(Long id) throws Exception {
-        return null;
+
+        CarroEntity carroLocal = carroRepository.findById(id)
+                .orElse(null);
+
+        if (carroLocal != null) {
+            return carroLocal;
+        } else {
+            throw new Exception("Este carro con id: " + id + "no existe\nIngrese otro");
+        }
+
     }
 
     @Override
-    public void eliminarCarroId(Long id) throws Exception {
+    public String eliminarCarroId(Long id) throws Exception {
+        CarroEntity carroLocal = carroRepository.findById(id)
+                .orElse(null);
 
+        if (carroLocal != null) {
+            carroRepository.deleteById(id);
+            return "El carro ha sido eliminado\nID: " + id;
+        } else {
+            throw new Exception("Este carro con id: " + id + "no existe\nIngreso otro");
+        }
     }
+
+    @Override
+    public CarroEntity actualizarCarroId(Long id, CarroEntity detallesNew) throws Exception {
+
+        CarroEntity carroLocal = carroRepository.findById(id)
+                .orElse(null);
+
+        CarroEntity carUpdate;
+        if (carroLocal != null) {
+
+            carroLocal.setMarca(detallesNew.getMarca());
+            carroLocal.setModelo(detallesNew.getModelo());
+            carroLocal.setColor(detallesNew.getColor());
+            carroLocal.setPlacas(detallesNew.getPlacas());
+            carroLocal.setFechaIngreso(detallesNew.getFechaIngreso());
+            carroLocal.setFechaCompra(detallesNew.getFechaCompra());
+            carroLocal.setPrecio(detallesNew.getPrecio());
+            carroLocal.setStatus(detallesNew.getStatus());
+
+            carUpdate = carroRepository.save(carroLocal);
+
+        } else {
+            throw new Exception("Este carro con id: " + id + "no existe\nIngrese otro");
+        }
+
+        return carUpdate;
+    }
+
+
 }
