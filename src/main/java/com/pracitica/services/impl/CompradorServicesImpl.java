@@ -64,7 +64,7 @@ public class CompradorServicesImpl implements CompradorServices {
     }
 
     @Override
-    public CompradorEntity actualizarComprador(Long id, CompradorEntity detallesNew) throws Exception {
+    public CompradorEntity actualizarCompradorId(Long id, CompradorEntity detallesNew) throws Exception {
 
         //Buscamos por precaucion el nombre del comprador
         CompradorEntity compradorLocal = compradorRepository.findById(id)

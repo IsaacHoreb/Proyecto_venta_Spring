@@ -12,7 +12,7 @@ public interface CompradorServices {
 
     public String eliminarCompradorId(Long id) throws Exception;
 
-    public CompradorEntity actualizarComprador(Long id, CompradorEntity detallesNew) throws Exception;
+    public CompradorEntity actualizarCompradorId(Long id, CompradorEntity detallesNew) throws Exception;
 
     public List<CompradorEntity> listarCompradores() throws Exception;
 

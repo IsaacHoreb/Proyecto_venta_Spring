@@ -32,7 +32,7 @@ public class CompradorController {
 
     @PutMapping("/update/{id}")
     public CompradorEntity updateShooper(@PathVariable("id") Long id, @Valid @RequestBody CompradorEntity detallesNew) throws Exception {
-        return compradorServices.actualizarComprador(id, detallesNew);
+        return compradorServices.actualizarCompradorId(id, detallesNew);
     }
 
     @DeleteMapping("/delete")
