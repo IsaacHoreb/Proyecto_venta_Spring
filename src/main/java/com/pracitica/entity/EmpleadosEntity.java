@@ -3,6 +3,7 @@ package com.pracitica.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -36,7 +37,7 @@ public class EmpleadosEntity {
     private String email;
 
     @Enumerated(EnumType.STRING)
-    @NotBlank(message = "El nombre del puesto no puede estar en blanco")
+    @NotNull(message = "El nombre del puesto no puede estar en blanco")
     @Column(name = "puesto", nullable = false, columnDefinition = "VARCHAR(25)")
     private EPuesto puesto; //Se relaciona con el archivo Enum
 
