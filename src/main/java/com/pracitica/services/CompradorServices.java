@@ -14,7 +14,6 @@ public interface CompradorServices {
 
     public CompradorEntity actualizarComprador(Long id, CompradorEntity detallesNew) throws Exception;
 
-
     public List<CompradorEntity> listarCompradores() throws Exception;
 
 }
