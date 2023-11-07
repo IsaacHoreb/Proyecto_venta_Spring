@@ -35,4 +35,9 @@ public class EmpleadoController {
         return empleadosServices.actualizarEmpleadoId(id, detallesNew);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public String deleteWorkerId(@PathVariable("id") Long id) throws Exception {
+        return empleadosServices.eliminarEmpleadoId(id);
+    }
+
 }
