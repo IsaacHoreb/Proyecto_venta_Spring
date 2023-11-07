@@ -6,6 +6,8 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/car")
 public class CarroControlador {
@@ -31,6 +33,11 @@ public class CarroControlador {
     @PutMapping("/updateCar/{id}")
     public CarroEntity updateCarId(@PathVariable("id") Long id, @Valid @RequestBody CarroEntity cardetalles) throws Exception {
         return carroServices.actualizarCarroId(id, cardetalles);
+    }
+
+    @GetMapping("/listAllCar")
+    public List<CarroEntity> listarCarro() throws Exception {
+        return carroServices.listarTodoCar();
     }
 
 }

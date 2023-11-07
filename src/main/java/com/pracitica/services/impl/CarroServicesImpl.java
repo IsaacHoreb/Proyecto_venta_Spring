@@ -6,6 +6,8 @@ import com.pracitica.services.CarroServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CarroServicesImpl implements CarroServices {
 
@@ -87,5 +89,16 @@ public class CarroServicesImpl implements CarroServices {
         return carUpdate;
     }
 
+    @Override
+    public List<CarroEntity> listarTodoCar() throws Exception {
+        List<CarroEntity> carros = carroRepository.findAll();
+
+        if (carros.isEmpty()) {
+            throw new Exception("No existe ningún carro\nIngrese valores...");
+        } else {
+            return carros;
+        }
+
+    }
 
 }
