@@ -20,8 +20,13 @@ public class CompradorServicesImpl implements CompradorServices {
     }
 
     @Override
-    public void eliminarCompradorId(Long id) throws Exception {
+    public String eliminarCompradorId(Long id) throws Exception {
+        return null;
+    }
 
+    @Override
+    public CompradorEntity actualizarComprador(Long id, CompradorEntity detallesNew) throws Exception {
+        return null;
     }
 
     @Override
