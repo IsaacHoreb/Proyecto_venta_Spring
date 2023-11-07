@@ -20,7 +20,7 @@ public class CompradorController {
         return compradorServices.guardarComprador(comprador);
     }
 
-    @GetMapping("/Info/{id}")
+    @GetMapping("/info/{id}")
     public CompradorEntity getShopperId(@PathVariable("id") Long id) throws Exception {
         return compradorServices.obtenerCompradorId(id);
     }
@@ -35,10 +35,9 @@ public class CompradorController {
         return compradorServices.actualizarCompradorId(id, detallesNew);
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/{id}")
     public String deleteShooper(@PathVariable("id") Long id) throws Exception {
         return compradorServices.eliminarCompradorId(id);
     }
-
 
 }
