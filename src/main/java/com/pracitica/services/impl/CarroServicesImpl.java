@@ -63,9 +63,12 @@ public class CarroServicesImpl implements CarroServices {
         CarroEntity carroLocal = carroRepository.findById(id)
                 .orElse(null);
 
-        CarroEntity carUpdate;
+        CarroEntity carUpdate; //Guardar los cambios para retornarlos
+
+        //Verificamos
         if (carroLocal != null) {
 
+            //Anadimos los nuevos valores para update
             carroLocal.setMarca(detallesNew.getMarca());
             carroLocal.setModelo(detallesNew.getModelo());
             carroLocal.setColor(detallesNew.getColor());
@@ -75,7 +78,7 @@ public class CarroServicesImpl implements CarroServices {
             carroLocal.setPrecio(detallesNew.getPrecio());
             carroLocal.setStatus(detallesNew.getStatus());
 
-            carUpdate = carroRepository.save(carroLocal);
+            carUpdate = carroRepository.save(carroLocal); //Guarda los cambios
 
         } else {
             throw new Exception("Este carro con id: " + id + "no existe\nIngrese otro");
