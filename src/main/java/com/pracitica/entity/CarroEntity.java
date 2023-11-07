@@ -1,5 +1,6 @@
 package com.pracitica.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,9 +33,11 @@ public class CarroEntity {
     @Column(name = "placas", length = 15, nullable = false, columnDefinition = "VARCHAR(15)", unique = true)
     private String placas;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "fecha_ingreso", nullable = false, columnDefinition = "DATE")
     private LocalDate fechaIngreso;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "fecha_compra", nullable = false, columnDefinition = "DATE")
     private LocalDate fechaCompra;
 
